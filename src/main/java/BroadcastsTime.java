@@ -28,4 +28,10 @@ public class BroadcastsTime implements Comparable<BroadcastsTime> {
     public String toString() {
         return "" + hour + ":" + minutes;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        BroadcastsTime bt = (BroadcastsTime) obj;
+        return ((bt.hour() == hour()) && (bt.minutes() == minutes()));
+    }
 }
