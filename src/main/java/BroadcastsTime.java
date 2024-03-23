@@ -14,7 +14,13 @@ public class BroadcastsTime implements Comparable<BroadcastsTime> {
     boolean after(BroadcastsTime t) {return ((hour() >= t.hour()) && (minutes() > t.minutes()));}
     boolean befor(BroadcastsTime t) {return ((hour() <= t.hour()) && (minutes() < t.minutes()));}
     boolean between(BroadcastsTime t1, BroadcastsTime t2) {
-        return ( (hour() < t2.hour()) && (hour() > t1.hour()) && (minutes() < t2.minutes()) && (minutes() > t1.minutes()) );
+        if ( (hour() < t2.hour()) && (hour() > t1.hour()))
+            return true;
+        else if ((hour() > t2.hour()) && (hour() < t1.hour()))
+            return false;
+        else {
+            return ( (minutes() < t2.minutes()) && (minutes() > t1.minutes()));
+        }
     }
     @Override
     public int compareTo(BroadcastsTime bt) {

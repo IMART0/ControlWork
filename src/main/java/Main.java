@@ -58,9 +58,10 @@ public class Main {
         //10
         System.out.println(10);
         BroadcastsTime startTime = new BroadcastsTime((byte) 5, (byte) 0);
-        BroadcastsTime endTime = new BroadcastsTime((byte) 9, (byte) 0);
+        BroadcastsTime endTime = new BroadcastsTime((byte) 14, (byte) 0);
+        String channelName1 = "#Первый";
         for (Program program : channelPrograms) {
-            if (program.getTime().between(startTime, endTime)) {
+            if ((program.getTime().between(startTime, endTime)) && (channelName1.equals(program.getChannel()))) {
                 System.out.println(program.getName());
             }
         }
