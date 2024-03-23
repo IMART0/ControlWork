@@ -5,6 +5,10 @@ public class BroadcastsTime implements Comparable<BroadcastsTime> {
         this.hour = hour;
         this.minutes = minutes;
     }
+    BroadcastsTime(String data) {
+        this.hour = Byte.parseByte("" + data.charAt(0) + data.charAt(1));
+        this.minutes = Byte.parseByte("" + data.charAt(3) + data.charAt(4));
+    }
     byte hour() {return hour;}
     byte minutes() {return minutes;}
     boolean after(BroadcastsTime t) {return ((hour() >= t.hour()) && (minutes() > t.minutes()));}
@@ -18,5 +22,10 @@ public class BroadcastsTime implements Comparable<BroadcastsTime> {
             return hour() - bt.hour();
         else
             return minutes() - bt.minutes();
+    }
+
+    @Override
+    public String toString() {
+        return "" + hour + ":" + minutes;
     }
 }
