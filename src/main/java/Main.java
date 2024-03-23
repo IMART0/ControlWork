@@ -25,6 +25,7 @@ public class Main {
         }
         s.close();
         Collections.sort(list, Comparator.comparing(program -> program.getTime()));
+        System.out.println(list);
         //7
         BroadcastsTime currentTime = new BroadcastsTime((byte) 14, (byte) 30); // Пример текущего времени
         for (Program program : list) {
@@ -41,12 +42,12 @@ public class Main {
         System.out.println(foundPrograms);
 
         //9
-        BroadcastsTime currentTime1 = new BroadcastsTime((byte) 15, (byte) 20);
-        String channelName = "#НТВ";
+        BroadcastsTime currentTime1 = new BroadcastsTime((byte) 06, (byte) 00);
+        String channelName = "#Первый";
         List<Program> channelPrograms = programs.get(channelName);
         if (channelPrograms != null) {
             for (Program program : channelPrograms) {
-                if (program.getTime().equals(currentTime)) {
+                if (program.getTime().equals(currentTime1)) {
                     System.out.println(program.getName());
                 }
             }
